@@ -12,5 +12,13 @@
     <%= f.label :description %><br />
     <%= f.text_field :description %>
   </p>
+  <p>
+	<%= f.label :user_rating %><br />
+    <%= f.select :user_rating, (0..5) %>
+  </p>
+  <p>
+	<%= f.label :genre %><br />
+    <%= f.select :genre_id, genre_options %>
+  </p>
   <p><%= f.submit %></p>
 <% end %>

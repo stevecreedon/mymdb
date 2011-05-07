@@ -57,7 +57,9 @@ annotate
 - run migration and rerun annotate
 - write specs for & update the Film model to validate numericality of rating
 - run rake spec, lots of failures which is why we use factory girl rather than create each by hand.
-NOTENOTE - we have to fix the destroy spec that we did create by hand...
+- we have to fix the destroy spec that we did create by hand.
+- add the select box for rating to film
+
 
 7. Add Genre
 
@@ -68,7 +70,9 @@ NOTENOTE - we have to fix the destroy spec that we did create by hand...
 - create the genre_id field in film
 - create the association in genre and film
 - create a genre spec that ensures all films are destroyed when the genre is destroyed, fix the association to do that
-- create a migration that creates a 'other' genre and associate films to that.
+- create a migration that creates a 'other' genre and associate any existing films to that.
+- add the select box for genre
+- add the Genre link layout
 
 
 

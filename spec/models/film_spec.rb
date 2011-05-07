@@ -64,6 +64,7 @@ describe Film do
 end
 
 
+
 # == Schema Information
 #
 # Table name: films
@@ -74,6 +75,7 @@ end
 #  description :string(255)
 #  created_at  :datetime
 #  updated_at  :datetime
-#  rating      :integer
+#  user_rating :integer
+#  gener_id    :integer
 #
 

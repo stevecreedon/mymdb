@@ -1,5 +1,5 @@
 class Film < ActiveRecord::Base
-  attr_accessible :name, :url, :description
+  attr_accessible :name, :url, :description, :user_rating
   validates_presence_of :name, :url, :description
   validates_numericality_of :user_rating, :greater_than => -1, :less_than => 6 #by default nil isn't a number so this also ensures presence of (can be changed so that validation only occurs if a value is present)
   
@@ -16,6 +16,7 @@ class Film < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: films
@@ -26,6 +27,7 @@ end
 #  description :string(255)
 #  created_at  :datetime
 #  updated_at  :datetime
-#  rating      :integer
+#  user_rating :integer
+#  gener_id    :integer
 #
 

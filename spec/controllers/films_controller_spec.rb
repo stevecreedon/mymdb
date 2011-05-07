@@ -1,9 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe FilmsController do
-  fixtures :all
-  render_views
-
+  
   it "index action should render index template" do
     Film.expects(:all).returns([])
     get :index
@@ -65,7 +63,10 @@ describe FilmsController do
   end
 
   it "destroy action should destroy model and redirect to index action" do
-    film = Film.create!(:name => 'a film', :url => 'http://test/url', :description => 'some description')
+    film = Film.create!(:name => 'a film', 
+                        :url => 'http://test/url', 
+                        :description => 'some description', 
+                        :user_rating => 1)
     lambda do
       delete :destroy, :id => film.id
       response.should redirect_to(films_url)

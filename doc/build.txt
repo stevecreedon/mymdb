@@ -1,6 +1,6 @@
 PreRequisites
 
-Make sure everyone has Rails 3, RSpec Textmate Bundle
+Make sure everyone has Rails 3, RSpec Textmate Bundle, Ruby Bundle
 
 1. Set Up and Installation
 
@@ -32,4 +32,46 @@ annotate
 - Clean out the http:// from URL when it is saved. write a spec then add a before_validation callback.
 
 - Write a set of specs for the Films controller.
+
+3. Create a Home Page and Controller
+
+- Create a home controller with and a home page, delete public.html and fix routing to use this.
+- Take a look at the layout and add a title
+
+4. Add Search 
+
+- add a search box to Home page using form_tag, take a look at the authenticity token it inserts 
+- create a search controller & search resource with a create method
+- create a search/create view
+- take a look at ActiveRecord and it's find method
+- write a test for the search_controller and implement it.
+- implement the index page and have a play...
+
+5. Make it start to feel like a web app by adding some top level navigation
+- add a home and films link
+- move the search box to the application layout using css for floating nav to the left and search to the right.
+
+6. Add a rating to the film
+- create a migration to add the column
+- create a migration to populate existing films with a rating
+- run migration and rerun annotate
+- write specs for & update the Film model to validate numericality of rating
+- run rake spec, lots of failures which is why we use factory girl rather than create each by hand.
+NOTENOTE - we have to fix the destroy spec that we did create by hand...
+
+7. Add Genre
+
+- rails g nifty:scaffold Genre name:string
+- run migration
+- write spec and NEGATIVELY validate presence of name
+- Examine active record associations
+- create the genre_id field in film
+- create the association in genre and film
+- create a genre spec that ensures all films are destroyed when the genre is destroyed, fix the association to do that
+- create a migration that creates a 'other' genre and associate films to that.
+
+
+
+
+
 

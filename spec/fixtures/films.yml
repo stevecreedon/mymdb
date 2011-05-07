@@ -8,6 +8,7 @@ two:
   url: MyString
   description: MyString
 
+
 # == Schema Information
 #
 # Table name: films
@@ -18,5 +19,6 @@ two:
 #  description :string(255)
 #  created_at  :datetime
 #  updated_at  :datetime
+#  rating      :integer
 #
 

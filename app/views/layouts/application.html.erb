@@ -9,11 +9,29 @@
   </head>
   <body>
     <div id="container">
+	  <h1>MYMDB...</h1>
+	
+	  <div>
+	  	<div id="navigation">
+		  	<%= link_to 'home', root_path %>
+		    &nbsp;
+		    <%= link_to 'films', films_path %>
+		 </div>
+		 <div id="search">
+			<% form_tag search_index_path do %>
+				<%= text_field_tag :search_for %>
+				<%= submit_tag %>
+			<% end %>
+		 </div>
+		 <div class="clear"></div>
+	  </div>
+	
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
       <%= content_tag :h1, yield(:title) if show_title? %>
       <%= yield %>
+
     </div>
   </body>
 </html>

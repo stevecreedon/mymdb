@@ -73,3 +73,15 @@ a {
 .error_messages ul {
   margin: 0;
 }
+
+#navigation{
+	float: left;
+}
+
+#search{
+	float: right;
+}
+
+.clear{
+	clear: both;
+}

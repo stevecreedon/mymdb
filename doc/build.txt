@@ -1,0 +1,35 @@
+PreRequisites
+
+Make sure everyone has Rails 3, RSpec Textmate Bundle
+
+1. Set Up and Installation
+
+Create Gemfile
+Bundle Install Gems
+Install Rspec: rails g rspec:install
+Install Capistrano: capify .
+set Mocha as the default mocking framework
+
+2. Scaffolding films, add validations
+
+-Install the nifty generators layouts and helper:
+rails g nifty:layout
+
+-Scaffold Film and take a look at the files generated including config/routes, try out rake routes 
+rails g nifty:scaffold Film name:string url:string description:string
+
+-Migrate & Annotate
+rake db:migrate
+annotate
+
+-Start the webserver and take a look around
+
+-Add basic validation, test this by trying to add an invalid film on page. 
+:name, :url, :description
+
+- Run specs again, the model spec for Film should be broken as it's now not valid so create a film Factory Girl to fix the broken spec for a new Film
+
+- Clean out the http:// from URL when it is saved. write a spec then add a before_validation callback.
+
+- Write a set of specs for the Films controller.
+

@@ -13,7 +13,6 @@ var addComment = function(){
 			url: url,
 			data: data,
 			success: function(result){
-				
 			    $("#comments-container").append(result);
 			    $("#add_comment_text").val(''); 
 			},

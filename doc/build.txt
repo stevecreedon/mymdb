@@ -1,6 +1,11 @@
 PreRequisites
 
-Make sure everyone has Rails 3, RSpec Textmate Bundle & an up to date version of bundler
+Make sure everyone has 
+
+Rails 3, 
+RSpec Textmate Bundle
+Bundler
+ImageMagick installed for paperclip
 
 1. Set Up and Installation
 
@@ -103,8 +108,22 @@ annotate
 - Add a hidden text field tag for the film id so we can conveninetky use it in ajax.
 - Create the client side javascript in the application.js file & test this using console to see the server return 404.
 - Create a spec for the comments controller and make the comments controller pass the test.
-- Add the unobtrusive javascript method call to delete a comment
-- Add destroy to config routes resource, write the comment controller destroy spec and action.  
+- Add the unobtrusive javascript link to the comments partial to delete a comment
+- Add destroy to config routes resource, write the comment controller destroy spec and action.
+
+10. Paperclip
+
+- add an attachable photo to film model:  has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" } 
+******************************************************************************************
+***** DON"T FORGET TO ADD THE PHOTO to the attribute_accessible list in film"
+******************************************************************************************
+- create the migration film_photo
+- make the edit form multipart with:	 @film, :html => { :multipart => true }
+- add the file_field to the film edit form.
+- upload an image and see where it goes.
+- add the image_tag to the show form
+
+  
    
 
 

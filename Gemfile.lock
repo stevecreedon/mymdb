@@ -126,7 +126,7 @@ DEPENDENCIES
   mocha
   nifty-generators
   nokogiri
-  paperclip
+  paperclip (~> 2.3)
   rails (= 3.0.3)
   rspec-rails (~> 2.4)
   sqlite3-ruby

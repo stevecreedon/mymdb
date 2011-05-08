@@ -20,7 +20,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # Bundle the extra gems:
 gem 'bj'
 gem 'nokogiri'
-gem 'paperclip'
+gem "paperclip", "~> 2.3"
 gem 'devise'
 gem "jquery-rails"
 # gem 'sqlite3-ruby', :require => 'sqlite3'

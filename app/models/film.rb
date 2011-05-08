@@ -6,6 +6,7 @@ class Film < ActiveRecord::Base
   before_validation :clean_url
   
   belongs_to :genre
+  has_many :comments, :dependent => :destroy
   
   private
   

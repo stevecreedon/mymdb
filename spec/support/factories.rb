@@ -8,3 +8,13 @@ end
 Factory.define :genre do |genre|
   genre.name 'drama'
 end
+
+Factory.define :user do |user|
+  user.email 'tester@testerxyz.co.uk'
+  user.password 'xyzabc'
+end
+
+Factory.define :admin do |user|
+  user.email 'admintester@testerxyz.co.uk'
+  user.password 'xyzabc'
+end

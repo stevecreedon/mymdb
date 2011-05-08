@@ -5,7 +5,9 @@ Mymdb::Application.routes.draw do
 
   resources :genres
 
-  resources :films
+  resources :films do
+    resources :comments, :only => :create
+  end
   resources :search, :only => :create
 
   # The priority is based upon order of creation:

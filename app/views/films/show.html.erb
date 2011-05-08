@@ -14,6 +14,25 @@
 </p>
 
 <p>
+
+  <%= hidden_field_tag :film_id, @film.id %>
+	
+  <div id="comments-container">
+  	<% @film.comments.each do |comment| %>
+		<%= render :partial => 'comments/comment', :locals => {:comment => comment} %>
+	<% end %>
+  </div>
+
+  <div id="add-comment-container">
+	<% form_tag nil, :id => 'add-comment-form' do %>
+		<%= text_area_tag :add_comment_text %>
+	<% end %>
+	<div><button id="add-comment-button">Add Comment</button></div>
+  </div>
+	
+</p>
+
+<p>
   <%= link_to "Edit", edit_film_path(@film) %> |
   <%= link_to "Destroy", @film, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", films_path %>

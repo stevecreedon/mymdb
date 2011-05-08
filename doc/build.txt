@@ -1,6 +1,6 @@
 PreRequisites
 
-Make sure everyone has Rails 3, RSpec Textmate Bundle, Ruby Bundle
+Make sure everyone has Rails 3, RSpec Textmate Bundle & an up to date version of bundler
 
 1. Set Up and Installation
 
@@ -81,7 +81,30 @@ annotate
 - create the admin model: rails g devise Admin
 - create the devise views: rails g devise:views
 - lock down the new, edit and destroy methods on the film and genres controller
-- add a sign-out method to layouts/application.html
+- add sign-in & sign-out partials to layouts/application.html
+- fix all the breaking specs by
+	- include the devise test helpers in spec_helper:  config.include Devise::TestHelpers, :type => :controller
+	- create user and admin factories
+	- add the sign_in method as before(:each) in a block that describes admin functions
+
+9. Add User Comments
+
+- create a comment model and migration: rails g model Comment     NOTE: We're not scaffolding this..
+- complete the migration by hand
+- add the validation so that a comment must have a user, text and film
+- add the film and user associations including destroy so that comments are destroyed when a user or film is..
+- go to the spec and add a quick negative spec to test for the validations
+- we're going to do a bit of ajax so add the jquery-rails gem and run bundle install
+- replace prototype with jquery:  rails g jquery:install
+- now take a look at web page source to see what's changed.
+- create a comments controller and add the NESTED comments resource to the film resource routes
+- create a comments/_comment partial and add this to the film's show page in a comments container
+- Add an 'add comment' button and text area to the show page in an add-comment container
+- Add a hidden text field tag for the film id so we can conveninetky use it in ajax.
+- Create the client side javascript in the application.js file & test this using console to see the server return 404.
+- Create a spec for the comments controller and make the comments controller pass the test.
+  
+   
 
 
 

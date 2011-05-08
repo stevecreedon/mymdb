@@ -53,7 +53,7 @@ annotate
 
 6. Add a rating to the film
 - create a migration to add the column
-- create a migration to populate existing films with a rating
+- create a migration to populate existing films with a default rating
 - run migration and rerun annotate
 - write specs for & update the Film model to validate numericality of rating
 - run rake spec, lots of failures which is why we use factory girl rather than create each by hand.
@@ -74,6 +74,14 @@ annotate
 - add the select box for genre
 - add the Genre link layout
 
+8. Add Devise Authentication
+
+- install the initializers:   rails generate devise:install
+- create the user model: rails g devise User
+- create the admin model: rails g devise Admin
+- create the devise views: rails g devise:views
+- lock down the new, edit and destroy methods on the film and genres controller
+- add a sign-out method to layouts/application.html
 
 
 

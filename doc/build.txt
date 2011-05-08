@@ -6,14 +6,19 @@ Rails 3,
 RSpec Textmate Bundle
 Bundler
 ImageMagick installed for paperclip
+Git with a github account
 
 1. Set Up and Installation
 
-Create Gemfile
-Bundle Install Gems
-Install Rspec: rails g rspec:install
-Install Capistrano: capify .
-set Mocha as the default mocking framework
+- create github repository and init locally as per github instructions
+- cd out of the home directory and create the rails app
+- commit the code 
+
+- Create Gemfile
+- Bundle Install Gems
+- Install Rspec: rails g rspec:install
+- Install Capistrano: capify .
+- set Mocha as the default mocking framework
 
 2. Scaffolding films, add validations
 
@@ -127,6 +132,7 @@ annotate
 11. Delayed Job
 - create the method scrape_price in film - be sure to require 'open-uri', 'net/http'
 - create the migration for the film price
+- test in console on a play.com film page
 - generate the delayed job migration:  rails g delayed_job
 - make scrape_price work asynchronously
 - open a console and call .scrape_price on the film

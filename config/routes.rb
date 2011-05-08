@@ -6,7 +6,7 @@ Mymdb::Application.routes.draw do
   resources :genres
 
   resources :films do
-    resources :comments, :only => :create
+    resources :comments, :only => [:create, :destroy]
   end
   resources :search, :only => :create
 

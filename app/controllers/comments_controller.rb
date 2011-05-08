@@ -11,7 +11,11 @@ class CommentsController < ApplicationController
       response.status = 422
       render :nothing => true
     end
-    
   end 
+  
+  def destroy
+    Comment.destroy(params[:id])
+    redirect_to film_path(params[:film_id])
+  end
 
 end

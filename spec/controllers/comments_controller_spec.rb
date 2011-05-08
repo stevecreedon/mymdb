@@ -30,4 +30,18 @@ describe CommentsController do
     response.status.should == 422
   end
   
+  it 'should destroy the comment and redirect back to the film' do
+    
+    user = Factory(:user)
+    sign_in :user, user
+    
+    film = Factory(:film)
+    
+    Comment.expects(:destroy).with('123')
+    
+    delete :destroy, :film_id => film.id, :id => '123'
+    
+    response.should redirect_to film_path(film.id)
+  end
+  
 end

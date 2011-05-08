@@ -103,7 +103,8 @@ annotate
 - Add a hidden text field tag for the film id so we can conveninetky use it in ajax.
 - Create the client side javascript in the application.js file & test this using console to see the server return 404.
 - Create a spec for the comments controller and make the comments controller pass the test.
-  
+- Add the unobtrusive javascript method call to delete a comment
+- Add destroy to config routes resource, write the comment controller destroy spec and action.  
    
 
 

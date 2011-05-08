@@ -18,7 +18,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'ruby-debug19'
 
 # Bundle the extra gems:
-gem 'bj'
+gem 'delayed_job'
 gem 'nokogiri'
 gem "paperclip", "~> 2.3"
 gem 'devise'

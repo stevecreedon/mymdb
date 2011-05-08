@@ -123,6 +123,15 @@ annotate
 - upload an image and see where it goes.
 - add the image_tag to the show form
 
+
+11. Delayed Job
+- create the method scrape_price in film - be sure to require 'open-uri', 'net/http'
+- create the migration for the film price
+- generate the delayed job migration:  rails g delayed_job
+- make scrape_price work asynchronously
+- open a console and call .scrape_price on the film
+- rake jobs:work in a new console tab to start workers, check price again  
+
   
    
 

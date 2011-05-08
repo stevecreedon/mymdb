@@ -1,3 +1,7 @@
+require 'open-uri'
+require 'net/http'
+
+
 class Film < ActiveRecord::Base
   attr_accessible :name, :url, :description, :user_rating, :photo
   validates_presence_of :name, :url, :description
@@ -9,6 +13,20 @@ class Film < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   
   has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  
+  
+  
+  def scrape_price
+    uri = URI.parse("http://#{self.url}")
+    puts uri
+    document = Nokogiri::HTML(open(uri))
+    pounds = document.css('#pricePounds').text.scan(/\d+/)
+    pence = document.css('#pricePence').text
+    self.price = BigDecimal.new("#{pounds}.#{pence}")
+    self.save!
+  end
+  
+  handle_asynchronously :scrape_price
   
   private
   

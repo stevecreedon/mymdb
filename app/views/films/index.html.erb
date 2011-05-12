@@ -8,6 +8,7 @@
   </tr>
   <% for film in @films %>
     <tr>
+	  <td><%= image_tag(film.photo(:thumb)) %></td>
       <td><%= film.name %></td>
       <td><%= film.url %></td>
       <td><%= film.description %></td>

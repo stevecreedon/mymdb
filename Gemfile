@@ -23,6 +23,8 @@ gem 'nokogiri'
 gem "paperclip", "~> 2.3"
 gem 'devise'
 gem "jquery-rails"
+gem "RedCloth"
+
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 
@@ -30,6 +32,7 @@ gem "jquery-rails"
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 group :development, :test do
+   gem 'heroku'
    gem 'rspec-rails', "~> 2.4"
    gem 'factory_girl_rails'
    gem 'mocha'

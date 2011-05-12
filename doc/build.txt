@@ -29,12 +29,15 @@ rails g nifty:layout
 rails g nifty:scaffold Film name:string url:string description:string
 
 -Migrate & Annotate
+rake db:create
 rake db:migrate
 annotate
 
--Start the webserver and take a look around
+-Start the webserver and take a look around.
+- take a look at the form edit form partial and change description to text area.
 
--Add basic validation, test this by trying to add an invalid film on page. 
+
+- Add basic validation, test this by trying to add an invalid film on page. 
 :name, :url, :description
 
 - Run specs again, the model spec for Film should be broken as it's now not valid so create a film Factory Girl to fix the broken spec for a new Film
@@ -61,6 +64,14 @@ annotate
 - add a home and films link
 - move the search box to the application layout using css for floating nav to the left and search to the right.
 
+
+**********
+ADD IT TO HEROKU
+- install heroku gem
+- heroku create  #in command line
+- git push heroku master
+**********
+
 6. Add a rating to the film
 - create a migration to add the column
 - create a migration to populate existing films with a default rating
@@ -69,6 +80,7 @@ annotate
 - run rake spec, lots of failures which is why we use factory girl rather than create each by hand.
 - we have to fix the destroy spec that we did create by hand.
 - add the select box for rating to film
+- add RedCloth to the show page of the film
 
 
 7. Add Genre
@@ -80,7 +92,7 @@ annotate
 - create the genre_id field in film
 - create the association in genre and film
 - create a genre spec that ensures all films are destroyed when the genre is destroyed, fix the association to do that
-- create a migration that creates a 'other' genre and associate any existing films to that.
+- create a migration that populates genres with an 'other' genre and associate any existing films to that.
 - add the select box for genre
 - add the Genre link layout
 
@@ -127,16 +139,56 @@ annotate
 - add the file_field to the film edit form.
 - upload an image and see where it goes.
 - add the image_tag to the show form
+- add the thumb to the index page
 
 
 11. Delayed Job
 - create the method scrape_price in film - be sure to require 'open-uri', 'net/http'
 - create the migration for the film price
+- add the value to the show page
 - test in console on a play.com film page
 - generate the delayed job migration:  rails g delayed_job
 - make scrape_price work asynchronously
 - open a console and call .scrape_price on the film
-- rake jobs:work in a new console tab to start workers, check price again  
+- rake jobs:work in a new console tab to start workers, check price again
+
+
+CHEAT SHEETS for film routing
+
+Film Routing Cheat Sheet:
+
+1. Get a list films:
+
+films_path  >  /films > calls 'def index' in controller when request is a GET
+
+
+2. Show a single film with id 456
+
+film_path(film) or film_path(456) > /films/456 > calls 'def show' in controller with params[:id] = 456 when request is a GET
+
+
+3. New then Create
+
+new_film_path > /films/new > calls 'def new' in controller when request is a GET 
+
+films_path > /films > calls 'def create' in controller when request is a POST
+
+
+
+4. Edit then Update a film with id 789
+
+edit_film_path(film) > /films/789/edit > calls 'def edit' in controller with params[:id] = 789 when request is a GET
+
+film_path(film) or films_path(789)  >  /films/789 > calls 'def update' in controller with params[:id] = 789 when request is UPDATE
+
+
+5. Destroy a film with id 968
+
+film_path(film) or film_path(968) > /films/968 > calls 'def destroy' in controller when request is DELETE
+
+
+DO ANOTHER CHEAT SHEET FOR  controller specs matching the spec to the action being tested...
+  
 
   
    

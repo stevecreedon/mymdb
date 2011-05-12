@@ -1,0 +1,3 @@
+- install heroku gem
+- heroku create  #in command line
+- git push heroku master

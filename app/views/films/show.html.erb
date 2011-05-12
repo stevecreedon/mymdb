@@ -10,11 +10,16 @@
 </p>
 <p>
   <strong>Description:</strong>
-  <%= @film.description %>
+  <%= raw RedCloth.new(@film.description).to_html %>
 </p>
 
 <p>
 	<%= image_tag @film.photo(:medium) %>
+</p>
+
+<p>
+	<%= number_to_currency(@film.price, :unit => '&pound;')%>
+	
 </p>
 
 <p>
